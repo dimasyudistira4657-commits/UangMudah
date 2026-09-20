@@ -1,0 +1,10 @@
+{
+  "name": "uang-mudah-netlify",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^10.4.0",
+    "@supabase/supabase-js": "^2.57.0"
+  }
+}
