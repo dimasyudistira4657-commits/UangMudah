@@ -225,6 +225,21 @@ if(error){
 /* Hubungkan tombol Simpan */
 document.querySelector("#dashboardAdmin button")
 .addEventListener("click", simpanNasabah);
+async function konfirmasiPembayaran() {
+  const nama = document.getElementById("judulNama").innerText;
 
+  const { error } = await supabase
+    .from("nasabah")
+    .update({ status_pembayaran: "Menunggu Konfirmasi" })
+    .eq("nama_nasabah", nama);
+
+  if (error) {
+    alert("Konfirmasi gagal.");
+    return;
+  }
+
+  document.getElementById("statusNasabah").innerText = "Menunggu Konfirmasi";
+  alert("Pembayaran berhasil dikirim. Harap tunggu konfirmasi admin.");
+}
 </script>
 </body>
