@@ -1,0 +1,6 @@
+body{font-family:Arial,sans-serif;background:#eef4ff;margin:0;padding:15px}
+header{background:#0b5ed7;color:#fff;padding:20px;border-radius:15px;text-align:center;margin-bottom:20px}
+.card{background:#fff;padding:15px;border-radius:15px;margin-bottom:15px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+input,button{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid #ddd;box-sizing:border-box}
+button{background:#0b5ed7;color:#fff;border:none;font-weight:bold}
+.hidden{display:none}

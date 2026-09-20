@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uang Mudah</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+</head>
+<body>
+<header id="logo"><h1>💳 Uang Mudah</h1><p>Klik logo 3x untuk Admin</p></header>
+
+<div class="card" id="loginNasabah">
+<h2>Login Nasabah</h2>
+<input id="nama" placeholder="Nama Nasabah">
+<button onclick="loginNasabah()">Masuk</button>
+</div>
+
+<div class="card hidden" id="dashboardNasabah">
+<h2 id="judulNama"></h2>
+<p>Nomor VA</p><h3 id="vaNasabah"></h3>
+<p>Nominal Tagihan</p><h3 id="nominalNasabah"></h3>
+<p>Limit Pinjaman</p><h3 id="limitNasabah"></h3>
+<p>Status</p><h3 id="statusNasabah"></h3>
+<button onclick="konfirmasiPembayaran()">Sudah Melakukan Pembayaran</button>
+</div>
+
+<div class="card hidden" id="dashboardAdmin">
+<h2>Dashboard Admin</h2>
+<input id="namaBaru" placeholder="Nama Nasabah">
+<input id="vaBaru" placeholder="Nomor Virtual Account">
+<input id="nominalBaru" placeholder="Nominal Tagihan">
+<input id="limitBaru" placeholder="Limit Pinjaman">
+<button onclick="simpanNasabah()">Simpan Nasabah</button>
+<button onclick="lihatKonfirmasi()">Lihat Konfirmasi Pembayaran</button>
+<div id="daftarKonfirmasi"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
