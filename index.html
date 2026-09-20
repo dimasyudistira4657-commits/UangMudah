@@ -107,6 +107,12 @@ placeholder="Nominal Tagihan">
 placeholder="Limit Pinjaman">
 
 <button>Simpan Nasabah</button>
+    
+<button onclick="lihatKonfirmasi()">
+  📋 Lihat Konfirmasi Pembayaran
+</button>
+
+<div id="daftarKonfirmasi"></div>
 
 </div>
 
@@ -226,6 +232,46 @@ if(error){
 document.querySelector("#dashboardAdmin button")
 .addEventListener("click", simpanNasabah);
 async function konfirmasiPembayaran() {
+    async function lihatKonfirmasi(){
+
+  const { data, error } = await supabase
+    .from("nasabah")
+    .select("*")
+    .eq("status_pembayaran","Menunggu Konfirmasi");
+
+  if(error){
+    alert("Gagal mengambil data.");
+    return;
+  }
+
+  let html = "";
+
+  if(data.length === 0){
+    html = "<p>Tidak ada pembayaran yang menunggu konfirmasi.</p>";
+  }
+
+  data.forEach(item => {
+
+    html += `
+      <div style="background:#fff;border:1px solid #ddd;
+                  border-radius:12px;padding:10px;margin-top:10px">
+
+        <b>${item.nama_nasabah}</b><br>
+        VA : ${item.nomor_va}<br>
+        Tagihan : Rp ${Number(item.nominal_tagihan).toLocaleString("id-ID")}<br><br>
+
+        <button onclick="konfirmasiLunas('${item.nama_nasabah}')">
+          ✅ Konfirmasi Lunas
+        </button>
+
+      </div>
+    `;
+
+  });
+
+  document.getElementById("daftarKonfirmasi").innerHTML = html;
+
+}
   const nama = document.getElementById("judulNama").innerText;
 
   const { error } = await supabase
