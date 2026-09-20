@@ -1,1 +1,0 @@
-# Pinjaman-Uang-Mudah
